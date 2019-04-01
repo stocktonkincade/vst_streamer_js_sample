@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities">
+  <Identity Name="GA4MockAppServiceJS" ProcessorArchitecture="x64" Publisher="CN=Test" Version="0.0.0.1" />
+  <Properties>
+    <DisplayName>GA4 Mock App Service</DisplayName>
+    <PublisherDisplayName>CN=Test</PublisherDisplayName>
+    <Logo>assets\SampleAppx.50x50.png</Logo>
+  </Properties>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14332.0" MaxVersionTested="10.0.14332.0" />
+  </Dependencies>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+    <rescap:Capability Name="extendedBackgroundTaskTime" />
+	<Capability Name="internetClient" />
+  </Capabilities>
+  <Applications>
+    <Application Id="GA4MockAppServiceJS" Executable="app/GA4MockAppServiceJS.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements DisplayName="GA4 Mock App Service" Description="GA4 Mock App Service" BackgroundColor="#777777" Square150x150Logo="assets\SampleAppx.150x150.png" Square44x44Logo="assets\SampleAppx.44x44.png" />
+      <Extensions>
+        <uap:Extension Category="windows.appService"  EntryPoint="GA4MockAppServiceJS.streamer.js">
+          <uap:AppService Name="com.microsoft.datastreamerconnect"/>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Extensions>
+    <Extension Category="windows.activatableClass.inProcessServer">
+      <InProcessServer>
+        <Path>CLRHost.dll</Path>
+        <ActivatableClass ActivatableClassId="AppServiceBackgroundTask.AppServiceBackgroundTask" ThreadingModel="both" />
+      </InProcessServer>
+    </Extension>
+  </Extensions>
+</Package>

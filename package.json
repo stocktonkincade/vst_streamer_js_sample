@@ -1,0 +1,29 @@
+{
+  "name": "electron-streamer-js",
+  "version": "1.0.0",
+  "description": "A sample using a background task to connect to Data Streamer AppService with and Electron app",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron electron-app",
+    "build": "gulp build-electron"
+  },
+  "author": "ihonohan",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^11.12.0",
+    "del": "^2.2.0",
+    "electron-builder": "^20.39.0",
+    "electron-packager": "^7.0.3",
+    "electron-prebuilt": "^1.2.1",
+    "electron-rebuild": "^1.8.4",
+    "electron-windows-store": "^0.4.1",
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "@nodert-win10-rs4/windows.applicationmodel.background": "^0.4.0",
+    "@nodert-win10-rs4/windows.applicationmodel.appservice": "^0.4.0",
+    "@nodert-win10-rs4/windows.ui.webui": "^0.4.0",
+    "@nodert-win10-rs4/windows.foundation.collections": "^0.4.0"
+  }
+}
